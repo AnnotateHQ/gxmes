@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <head>
+        <title>Parappa the Rapper | Annotate</title>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex, nofollow, noodp, noydir" />
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no, minimal-ui" />
+        <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true,IE=Edge,chrome=1" />
+        <meta http-equiv="Content-Language" content="en-US" />
+        <script src="./jquery.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                position: relative;
+                width: 100vh;
+                height: 100vh;
+            }
+
+            .frame-game {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+            }
+
+            #retroGameThumbImg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+
+            #retroGameThumbImg>img {
+                box-shadow: 0 0 5px 2px rgb(0 0 0/20%);
+                border-radius: 10px;
+            }
+
+            .blur-background {
+                background-image: url('./logo.jpg');
+                background-repeat: no-repeat;
+                position: absolute;
+                background-size: cover;
+                background-position: 50%;
+                filter: blur(12px);
+                opacity: .7;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            .ejs--d5f430a99a1619b3434bf58e34a99c,
+            .ejs--057800d021995e1347ec07cb748672 {
+                background: transparent !important;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="frame-game">
+            <div id="retroGame"></div>
+            <div id="retroGameThumbImg"><img width="220" height="180" src="./logo.jpg" alt="Parappa the Rapper" title="Parappa the Rapper"></div>
+            <script>
+                EJS_player = '#retroGame';
+                EJS_biosUrl = './psx.7z';
+                EJS_gameUrl = './parappa-the-rapper.pbp';
+                EJS_core = 'psx';
+                // Settings only for Super Nintendo games
+                EJS_pathtodata = './ejs/'; //path to all of the wasm and js files. MUST all be in the same directory!!
+            </script>
+            <script src="./ejs/loader.js"></script>
+            <script>
+                // Hide thumb image when user started playing game.
+                EJS_onGameStart = function() {
+                    $('#retroGameThumbImg').hide();
+                    $('#blur-background').hide();
+                };
+            </script>
+            <div id="blur-background" class="blur-background"></div>
+        </div>
+    </body>
+
+</html>
