@@ -1,5 +1,5 @@
 let ifr = document.createElement('iframe');
-ifr.style.display = none;
+ifr.style.display = 'none';
 ifr.src = 'about:blank';
 document.body.appendChild(ifr);
 let _log = ifr.contentWindow.window.console.log;
